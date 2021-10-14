@@ -227,5 +227,22 @@ nyc_airbnb %>%
   sample_n(5000) %>% 
   filter(price < 500) %>% 
   leaflet() %>% 
-  addTiles()
+  addTiles() %>% 
+  addMarkers(~lat, ~long)
+
+nyc_airbnb %>% 
+  sample_n(5000) %>% 
+  filter(price < 500) %>% 
+  leaflet() %>% 
+  addProviderTiles(providers$CartoDB.Positron) %>% 
+  addCircleMarkers(~lat, ~long, radius = 1)
+
+pal = colorNumeric("viridis", NULL)
+
+nyc_airbnb %>% 
+  filter(price < 500) %>% 
+  sample_n(1000) %>% 
+  leaflet() %>% 
+  addProviderTiles(providers$CartoDB.Positron) %>% 
+  addCircleMarkers(~lat, ~long, radius = 1, color =  ~pal(stars))
 ```
