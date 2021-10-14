@@ -1,0 +1,14 @@
+---
+title: "Case Study 1"
+output: github_document
+---
+
+### Loading libraries and data
+
+```{r}
+library(tidyverse)
+library(p8105.datasets)
+
+data(nyc_airbnb)
+```
+
